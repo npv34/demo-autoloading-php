@@ -13,6 +13,7 @@ class UserController
 
     public function index()
     {
-        var_dump($this->user->getAll());
+        $users = $this->user->getAll('users');
+        var_dump($users);
     }
 }

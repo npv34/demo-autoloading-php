@@ -13,9 +13,13 @@ class Database
 
     public function __construct()
     {
-        $this->dsn = 'mysql:host=localhost;dbname=shop';
-        $this->username = 'root';
-        $this->password = '123456@Abc';
+        $config = parse_ini_file('config/database.ini', true);
+        $username = $config['database_default_username'];
+        $password = $config['database_default_password'];
+        $host = $config['database_default_host'];
+        $this->dsn = "mysql:host=$host;dbname=shop";
+        $this->username = $username;
+        $this->password = $password;
     }
 
     function connect()
